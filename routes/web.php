@@ -37,6 +37,8 @@ Route::middleware('auth', 'verified')->group(function () {
     //Tarefas
     Route::post('/tarefa/create', [TarefaController::class, 'create'])->name('tarefa.create');
     Route::get('/tarefa', [TarefaController::class, 'index'])->name('tarefa.index');
+    Route::put('/tarefa/{tarefa}', [TarefaController::class, 'update'])->name('tarefa.update');
+    Route::get('/tarefa/{tarefa}/edit', [TarefaController::class, 'edit'])->name('tarefa.edit');
 
     //Cadastro/Login
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

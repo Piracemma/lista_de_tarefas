@@ -13,11 +13,11 @@
         @method('PATCH')
     @endif
     
-    @if ($patch)
+    @if ($put)
         @method('PUT')
     @endif
     
-    @if ($patch)
+    @if ($delete)
         @method('DELETE')
     @endif
 

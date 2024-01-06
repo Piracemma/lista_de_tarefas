@@ -8,7 +8,7 @@
     <x-container>
         
         @if (session('tarefa'))
-            <div class="flex mx-2.5 justify-center">
+            <x-container-md class="flex mx-2.5 justify-center">
 
                 <div id="alert-3" class="flex items-center p-4 mb-4 w-3/4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
                     <div class="ms-3 text-sm font-medium">
@@ -22,21 +22,21 @@
                     </button>
                 </div>  
 
-            </div>
+            </x-container-md>
         @endif
 
-        <div class="flex mx-2.5 justify-center">
+        <x-container-md class="flex mx-2.5 justify-center">
 
             <x-form post :action="route('tarefa.create')" class="w-3/4">
 
-                <x-input name="tarefa" label="Nova Tarefa" placeholder="Ex: Lavar o carro" />
+                <x-input name="tarefa" label="Nova Tarefa" placeholder="Ex: Lavar o carro" :value="old('tarefa')" />
 
                 <x-btn.primary>Criar</x-btn.primary>
                 <x-btn.secundary>Limpar</x-btn.secundary>
 
             </x-form>
 
-        </div>
+        </x-container-md>
 
     </x-container>
     
