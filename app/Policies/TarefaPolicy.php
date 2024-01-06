@@ -11,4 +11,9 @@ class TarefaPolicy
     {
         return $tarefa->user->is($user);
     }
+
+    public function edit(User $user, Tarefa $tarefa): bool
+    {
+        return $tarefa->user->is($user);
+    }
 }

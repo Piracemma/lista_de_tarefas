@@ -6,6 +6,7 @@ use App\Models\User;
 use function Pest\Laravel\actingAs;
 use function Pest\Laravel\assertDatabaseHas;
 use function Pest\Laravel\assertDatabaseMissing;
+use function Pest\Laravel\get;
 use function Pest\Laravel\put;
 
 test('Validar se foi o usuario que crio a pergunta que está editando ela', function () {
@@ -67,4 +68,25 @@ test('validar se cumpre os mesmo requisitos da criacao', function () {
 
 });
 
-todo('Validar se o frontend está retornando a tarefa correta para editar');
+test('Validar se o frontend está retornando a tarefa correta para editar', function () {
+
+    $userRight = User::factory()->create();
+
+    $userWronge = User::factory()->create();
+
+    $tarefaRight = Tarefa::factory()->for($userRight)->create();
+
+    $tarefaWronge = Tarefa::factory()->for($userWronge)->create();
+
+    actingAs($userWronge);
+
+    get(route('tarefa.edit', $tarefaRight))->assertForbidden();
+
+    actingAs($userRight);
+
+    $request = get(route('tarefa.edit', $tarefaRight))->assertViewIs('tarefa.edit')->assertSuccessful();
+
+    $request->assertSee($tarefaRight->tarefa);
+    $request->assertDontSee($tarefaWronge->tarefa);
+
+});
