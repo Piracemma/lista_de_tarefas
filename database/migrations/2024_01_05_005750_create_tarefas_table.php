@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('tarefa', 50)->nullable(false);
             $table->foreignIdFor(User::class);
+            $table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }
