@@ -68,4 +68,13 @@ class TarefaController extends Controller
         return to_route('dashboard');
     }
 
+    public function delete(Tarefa $tarefa): RedirectResponse
+    {
+        $this->authorize('delete', $tarefa);
+
+        $tarefa->delete();
+
+        return to_route('dashboard');
+    }
+
 }

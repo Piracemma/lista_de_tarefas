@@ -54,6 +54,7 @@
                         
                     </td>
                     <td class="px-6 py-4">
+
                         <form action="{{ route('tarefa.check', $tarefa) }}" method="post">
                             @csrf
                             @method('PATCH')
@@ -63,7 +64,15 @@
                                 <button type="submit" class="text-red-500 hover:underline cursor-pointer">Estornar</button>
                             @endif
                         </form>
-                        <a href="{{route('tarefa.edit', $tarefa)}}" class="text-blue-500 hover:underline cursor-pointer">Editar</a>
+                        
+                        <a href="{{route('tarefa.delete', $tarefa)}}" class="text-blue-500 hover:underline cursor-pointer">Editar</a>
+                        
+                        <form action="{{ route('tarefa.check', $tarefa) }}" method="post" onsubmit="confirm('Tem certeza que deseja excluir a tarefa?')">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-800 dark:text-red-600 hover:underline cursor-pointer">Excluir</button>
+                        </form>
+                        
                     </td>
                 </tr>
                 

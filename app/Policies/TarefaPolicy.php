@@ -21,4 +21,9 @@ class TarefaPolicy
     {
         return $tarefa->user->is($user);
     }
+
+    public function delete(User $user, Tarefa $tarefa): bool
+    {
+        return $tarefa->user->is($user);
+    }
 }
