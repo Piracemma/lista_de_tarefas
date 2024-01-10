@@ -46,4 +46,26 @@ class TarefaController extends Controller
 
         return to_route('dashboard');
     }
+
+    public function check(Tarefa $tarefa): RedirectResponse
+    {
+        $this->authorize('check', $tarefa);
+
+        if($tarefa->status === 0) {
+
+            $tarefa->update([
+                'status' => 1
+            ]);
+
+        } else if($tarefa->status === 1) {
+
+            $tarefa->update([
+                'status' => 0
+            ]);
+
+        }
+
+        return to_route('dashboard');
+    }
+
 }

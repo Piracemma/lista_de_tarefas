@@ -38,6 +38,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/tarefa', [TarefaController::class, 'index'])->name('tarefa.index');
     Route::put('/tarefa/{tarefa}', [TarefaController::class, 'update'])->name('tarefa.update');
     Route::get('/tarefa/{tarefa}/edit', [TarefaController::class, 'edit'])->name('tarefa.edit');
+    Route::patch('/tarefa/{tarefa}', [TarefaController::class, 'check'])->name('tarefa.check');
 
     //Cadastro/Login
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

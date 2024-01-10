@@ -54,6 +54,15 @@
                         
                     </td>
                     <td class="px-6 py-4">
+                        <form action="{{ route('tarefa.check', $tarefa) }}" method="post">
+                            @csrf
+                            @method('PATCH')
+                            @if ($tarefa->status === 0)
+                                <button type="submit" class="text-green-500 hover:underline cursor-pointer">Finalizar</button>
+                                @else
+                                <button type="submit" class="text-red-500 hover:underline cursor-pointer">Estornar</button>
+                            @endif
+                        </form>
                         <a href="{{route('tarefa.edit', $tarefa)}}" class="text-blue-500 hover:underline cursor-pointer">Editar</a>
                     </td>
                 </tr>
