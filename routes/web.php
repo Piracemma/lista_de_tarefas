@@ -3,6 +3,8 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TarefaController;
+use App\Livewire\Dashboard;
+use App\Livewire\Tarefa;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +33,7 @@ Route::get('/', function () {
 
 Route::middleware('auth', 'verified')->group(function () {
 
-    Route::get('/dashboard', DashboardController::class)->name('dashboard');
+    /*Route::get('/dashboard', DashboardController::class)->name('dashboard');
 
     //Tarefas
     Route::post('/tarefa/create', [TarefaController::class, 'create'])->name('tarefa.create');
@@ -39,7 +41,10 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::put('/tarefa/{tarefa}', [TarefaController::class, 'update'])->name('tarefa.update');
     Route::get('/tarefa/{tarefa}/edit', [TarefaController::class, 'edit'])->name('tarefa.edit');
     Route::patch('/tarefa/{tarefa}', [TarefaController::class, 'check'])->name('tarefa.check');
-    Route::delete('/tarefa/{tarefa}', [TarefaController::class, 'delete'])->name('tarefa.delete');
+    Route::delete('/tarefa/{tarefa}', [TarefaController::class, 'delete'])->name('tarefa.delete');*/
+    Route::get('/dashboard', Dashboard::class)->name('dashboard');
+    Route::get('tarefa/criar', Tarefa\Create::class)->name('tarefa.create');
+    Route::get('tarefa/editar/{tarefa}', Tarefa\Edit::class)->name('tarefa.edit');
 
     //Cadastro/Login
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
