@@ -20,28 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    if (app()->isLocal()) {
-
-        auth()->loginUsingId(1);
-
-        return to_route('dashboard');
-
-    }
-
-    return view('welcome');
+    return to_route('dashboard');
 });
 
 Route::middleware('auth', 'verified')->group(function () {
 
-    /*Route::get('/dashboard', DashboardController::class)->name('dashboard');
-
-    //Tarefas
-    Route::post('/tarefa/create', [TarefaController::class, 'create'])->name('tarefa.create');
-    Route::get('/tarefa', [TarefaController::class, 'index'])->name('tarefa.index');
-    Route::put('/tarefa/{tarefa}', [TarefaController::class, 'update'])->name('tarefa.update');
-    Route::get('/tarefa/{tarefa}/edit', [TarefaController::class, 'edit'])->name('tarefa.edit');
-    Route::patch('/tarefa/{tarefa}', [TarefaController::class, 'check'])->name('tarefa.check');
-    Route::delete('/tarefa/{tarefa}', [TarefaController::class, 'delete'])->name('tarefa.delete');*/
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
     Route::get('tarefa/criar', Tarefa\Create::class)->name('tarefa.create');
     Route::get('tarefa/editar/{tarefa}', Tarefa\Edit::class)->name('tarefa.edit');
