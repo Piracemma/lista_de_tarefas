@@ -44,7 +44,7 @@ class ItemTarefa extends Component
 
     public function render(): View
     {
-        return view('livewire.itemtarefa');
+        return view('livewire.item-tarefa');
     }
 
     
