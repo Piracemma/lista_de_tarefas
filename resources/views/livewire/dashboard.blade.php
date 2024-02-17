@@ -39,6 +39,7 @@
                 
             </tbody>
         </table>
+        {{ $tarefas->links() }}
     </div>
     
     
