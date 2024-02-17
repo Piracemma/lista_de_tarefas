@@ -33,7 +33,7 @@
     
                 @foreach ($tarefas as $tarefa)
     
-                    <livewire:itemtarefa :tarefa="$tarefa" wire:key="{{ $tarefa->id }}" />
+                    <livewire:item-tarefa :tarefa="$tarefa" wire:key="{{ $tarefa->id }}" />
                     
                 @endforeach
                 
