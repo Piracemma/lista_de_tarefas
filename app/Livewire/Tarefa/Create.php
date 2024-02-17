@@ -8,6 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Features\SupportRedirects\Redirector;
 
 class Create extends Component
 {
@@ -24,7 +25,7 @@ class Create extends Component
         return view('livewire.tarefa.create');
     }
 
-    public function save(): RedirectResponse
+    public function save(): Redirector
     {
         $this->validate();
         user()->tarefas()->create(['tarefa' => $this->tarefa]);

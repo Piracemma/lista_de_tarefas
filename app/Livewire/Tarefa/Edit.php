@@ -7,6 +7,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
+use Livewire\Features\SupportRedirects\Redirector;
 
 class Edit extends Component
 {
@@ -31,7 +32,7 @@ class Edit extends Component
         $this->validateOnly($attribute);
     }
 
-    public function update(): RedirectResponse
+    public function update(): Redirector
     {
         
         $tarefa = $this->tarefa;

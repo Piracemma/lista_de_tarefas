@@ -17,7 +17,7 @@ class TarefaFactory extends Factory
     public function definition(): array
     {
         return [
-            'tarefa' => fake()->realText(50),
+            'tarefa' => fake()->realText(40),
         ];
     }
 }
