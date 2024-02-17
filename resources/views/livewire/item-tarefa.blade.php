@@ -23,15 +23,15 @@
     <td class="px-6 py-4">
 
         @if ($tarefa->status === 0)
-            <a wire:click="finalizar" class="block text-green-500 hover:underline cursor-pointer">Finalizar</a>
+            <button wire:click="finalizar" class="block text-green-500 hover:underline cursor-pointer">Finalizar</button>
         @endif
         @if ($tarefa->status === 1)
-            <a wire:click="estornar" class="block text-red-500 hover:underline cursor-pointer">Estornar</a>
+            <button wire:click="estornar" class="block text-red-500 hover:underline cursor-pointer">Estornar</button>
         @endif
     
         <a href="{{ route('tarefa.edit', $tarefa) }}" wire:navigate class="block text-blue-500 hover:underline cursor-pointer">Editar</a>
         
-        <a wire:click="excluir" wire:click="$refresh" class="block text-red-800 dark:text-red-600 hover:underline cursor-pointer" wire:confirm="Tem certeza que deseja excluir?">Excluir</a>
+        <button wire:click="excluir" wire:click="$refresh" class="block text-red-800 dark:text-red-600 hover:underline cursor-pointer" wire:confirm="Tem certeza que deseja excluir?">Excluir</button>
         
     </td>
 </tr>

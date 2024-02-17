@@ -32,7 +32,7 @@ class ItemTarefa extends Component
         $this->tarefa->fresh();
     }
 
-    public function excluir(): RedirectResponse
+    public function excluir()
     {
         $tarefa = $this->tarefa;
         $this->authorize('delete', $tarefa);
