@@ -5,6 +5,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\table;
+
 return new class extends Migration
 {
     /**
@@ -12,11 +14,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tarefas', function (Blueprint $table) {
+        Schema::create('fumars', function (Blueprint $table) {
             $table->id();
-            $table->string('tarefa', 50)->nullable(false);
             $table->foreignIdFor(User::class);
-            $table->tinyInteger('status')->default(0);
+            $table->text('observacao');
+            $table->boolean('fumei');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tarefas');
+        Schema::dropIfExists('fumars');
     }
 };

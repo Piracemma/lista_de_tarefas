@@ -1,7 +1,7 @@
 <nav class="bg-white border-gray-200 dark:bg-gray-900">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
       <a wire:navigate href="{{ route('dashboard') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Lista de Tarefas</span>
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Registros</span>
       </a>
       <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
           <span class="sr-only">Open main menu</span>
@@ -22,12 +22,17 @@
           </li>
           <li class="flex justify-center items-center">
             <x-nav-link :active="request()->routeIs('dashboard')" wire:navigate :href="route('dashboard')">
-                Lista de Tarefas
+                Dashboard
             </x-nav-link>
           </li>
           <li class="flex justify-center items-center">
-            <x-nav-link :active="request()->routeIs('tarefa.create')" wire:navigate :href="route('tarefa.create')">
-                Criar Tarefa
+            <x-nav-link :active="request()->routeIs('fumar')" wire:navigate :href="route('fumar')">
+                Fumar
+            </x-nav-link>
+          </li>
+          <li class="flex justify-center items-center">
+            <x-nav-link :active="request()->routeIs('pensamentosdesfuncionais')" wire:navigate :href="route('pensamentosdesfuncionais')">
+                Pensamentos Disfuncionais
             </x-nav-link>
           </li>
         </ul>

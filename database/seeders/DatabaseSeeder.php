@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        Tarefa::factory()->count(30)->create([
-            'user_id' => 1
+        User::factory()->create([
+            'name' => 'Matheus',
+            'email' => 'matheus_rf1997@hotmail.com',
+            'password' => 'Matheus@123'
         ]);
     }
 }
