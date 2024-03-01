@@ -3,6 +3,10 @@
     <div>
         <form wire:submit="salvar">
             <div>
+                <x-input-label value="Quantidade" />
+                <x-text-input type="number" wire:model="quantidade" step="0.01"></x-text-input>
+            </div>
+            <div>
                 <x-input-label value="Observação" />
                 <x-textarea-input wire:model="observacao"></x-textarea-input>
             </div>
@@ -18,6 +22,7 @@
         <h3 class="text-2xl dark:text-white text-black">Registro:</h3>
         @foreach ($registros as $registro)
             <div class="bg-white shadow rounded m-2 inline-block p-3">
+                <p class="text-xs"><span class="text-red-600">Quantidade:</span> {{ $registro->quantidade }}</p>
                 <p class="text-xs"><span class="text-red-600">Observacao:</span> {{ $registro->observacao }}</p>
                 <p class="text-xs"><span class="text-red-600">Fumei?:</span> {{ $registro->fumei ? 'sim' : 'nao' }}</p>
                 <p class="text-xs"><span class="text-red-600">Data/hora:</span> {{ date_format($registro->created_at, 'd/m H:i') }}</p>

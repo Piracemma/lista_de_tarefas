@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class);
             $table->text('observacao');
+            $table->float('quantidade');
             $table->boolean('fumei');
             $table->timestamps();
         });
