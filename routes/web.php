@@ -4,6 +4,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TarefaController;
 use App\Livewire\Dashboard;
+use App\Livewire\Fumar;
+use App\Livewire\PensamentosDesfuncionais;
 use App\Livewire\Tarefa;
 use Illuminate\Support\Facades\Route;
 
@@ -23,11 +25,11 @@ Route::get('/', function () {
     return to_route('dashboard');
 });
 
-Route::middleware('auth', 'verified')->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::get('/dashboard', Dashboard::class)->name('dashboard');
-    Route::get('tarefa/criar', Tarefa\Create::class)->name('tarefa.create');
-    Route::get('tarefa/editar/{tarefa}', Tarefa\Edit::class)->name('tarefa.edit');
+    Route::get('/fumar', Fumar::class)->name('fumar');
+    Route::get('/pensamentosdesfuncionais', PensamentosDesfuncionais::class)->name('pensamentosdesfuncionais');
 
     //Cadastro/Login
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
