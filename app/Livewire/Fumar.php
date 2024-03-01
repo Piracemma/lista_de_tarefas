@@ -10,6 +10,8 @@ class Fumar extends Component
 
     public bool $fumei = true;
 
+    public float $quantidade = 0;
+
     public function render()
     {
         return view('livewire.fumar', [
@@ -20,6 +22,7 @@ class Fumar extends Component
     public function salvar()
     {
         user()->fumar()->create([
+            'quantidade' => $this->quantidade,
             'observacao' => $this->observacao,
             'fumei' => $this->fumei
         ]);
